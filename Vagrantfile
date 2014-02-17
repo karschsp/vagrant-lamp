@@ -50,7 +50,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #
     # Use VBoxManage to customize the VM. For example to change memory:
     vb.customize ["modifyvm", :id, "--memory", "2048"]
-  # end
+  end
   #
   # View the documentation for the provider you're using for more
   # information on available options.
@@ -73,10 +73,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # #               Managed by Puppet.\n"
   # # }
   #
-  # config.vm.provision :puppet do |puppet|
-  #   puppet.manifests_path = "puppet/manifests"
-  #   puppet.manifest_file  = "site.pp"
-  # end
+  config.vm.provision :puppet do |puppet|
+    puppet.manifests_path = "puppet/manifests"
+    puppet.manifest_file  = "site.pp"
+  end
 
   # Enable provisioning with chef solo, specifying a cookbooks path, roles
   # path, and data_bags path (all relative to this Vagrantfile), and adding
