@@ -106,6 +106,24 @@ class httpd {
 
 }
 
+class mysql {
+  # Installs the MySQL server and MySQL client
+  package { 
+    ['mysql-server', 
+     'mysql',
+     'mysql-devel']: 
+      ensure => installed, 
+  }
+  
+  service { 'mysqld':
+    name   => 'mysqld',
+    require => Package['mysql-server'],
+    ensure => running,
+    enable => true,
+  }
+ }
+
 
 include base
 include httpd
+include mysql
