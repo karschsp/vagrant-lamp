@@ -25,8 +25,6 @@ class base {
     ensure  => present,
   }         
 }
-
-
 class httpd {
 
   File {
@@ -196,7 +194,19 @@ class php {
 
 }
 
+class memcached {
+  package { "memcached":
+    ensure => present,
+  }
+  service { "memcached":
+    ensure => running,
+    enable => true,
+  }
+}
+
+
 include base
 include httpd
 include mysql
 include php
+include memcached
