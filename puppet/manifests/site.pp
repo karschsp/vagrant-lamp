@@ -10,6 +10,11 @@ class base {
     creates => "/etc/yum.repos.d/epel.repo",
     alias   => "grab-epel",
   }
+  exec { "grab-webtatic":
+    command => "/bin/rpm -Uvh http://mirror.webtatic.com/yum/el6/latest.rpm",
+    creates => "/etc/yum.repos.d/webtatic.repo",
+    alias   => "grab-webtatic",
+  }  
   package { "vim-enhanced":
     ensure  => present,
   }
@@ -122,8 +127,76 @@ class mysql {
     enable => true,
   }
  }
+ 
 
+class php {
+
+  package { "php55w":
+    ensure => present
+  }
+  package { "php55w-opcache":
+    ensure => present
+  }
+  package { "php55w-cli":
+    ensure => present
+  }
+  package { "php55w-common":
+    ensure => present
+  }
+  package { "php55w-gd":
+    ensure => present
+  }
+  package { "php55w-pdo":
+    ensure => present
+  }
+  package { "php55w-mysql":
+    ensure => present
+  }
+  package { "php55w-xml":
+    ensure => present
+  }  
+  package { "php55w-pear":
+    ensure => present
+  }  
+  package { "php55w-mbstring":
+    ensure => present
+  }
+  package { "php55w-pecl-xdebug":
+    ensure => present
+  }
+  package { "pcre-devel":
+    ensure => present
+  }
+  #package { "php-pecl-apc":
+  #  ensure => present
+  #}
+  #package { "php-pecl-memcached":
+  #  ensure => present,
+  #}
+  file { "/etc/php.ini":
+    replace => true,
+    ensure  => present,
+    source  => "/vagrant/files/php/php.ini",
+  }
+  file {"/etc/php/":
+    replace => false,
+    ensure => directory,
+    recurse => true,
+  }
+  file { "/etc/php/php.d/":
+    replace => false,
+	ensure => directory,
+	recurse => true,
+  }
+  file { "/etc/php/php.d/apc.ini":
+    replace => true,
+    ensure  => file,
+    source  => "/vagrant/files/php/php.d/apc.ini",
+  }  
+
+}
 
 include base
 include httpd
 include mysql
+include php
