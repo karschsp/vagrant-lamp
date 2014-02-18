@@ -4,6 +4,9 @@ Two vhosts are created by default, drupal7.dev and drupal8.dev (make sure you ad
 
 <code>
 192.168.51.50	drupal7.dev
+</code>
+
+<code>
 192.168.51.50	drupal8.dev
 </code>
 
@@ -31,5 +34,5 @@ cd drupal8.dev
 git clone http://git.drupal.org/project/drupal.git --branch=8.x docroot
 </code>
 
-Follow your Drupal install instructions from there.
+Follow your Drupal installation instructions from there.
 
