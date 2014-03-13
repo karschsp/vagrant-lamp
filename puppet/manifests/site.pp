@@ -165,6 +165,9 @@ class php {
   package { "php55w-pecl-xdebug":
     ensure => present
   }
+  package { "php55w-devel":
+    ensure => present
+  }
   package { "pcre-devel":
     ensure => present
   }
