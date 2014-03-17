@@ -26,7 +26,10 @@ class base {
   }
   package { "telnet":
     ensure  => present,
-  }         
+  }
+  package { "htop":
+    ensure => present,
+  }       
 }
 class httpd {
 
