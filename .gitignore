@@ -1,3 +1,5 @@
 www
 .vagrant
 .DS_Store
+files/httpd/vhosts/ajimedia.dev.conf
+files/httpd/vhosts/magnum.dev.conf
