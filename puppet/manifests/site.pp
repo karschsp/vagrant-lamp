@@ -166,8 +166,9 @@ class php {
     ensure => present
   }
   package { "php55w-pecl-xdebug":
-    ensure => present
+    ensure => installed
   }
+
   package { "php55w-devel":
     ensure => present
   }
@@ -200,6 +201,11 @@ class php {
     ensure  => file,
     source  => "/vagrant/files/php/php.d/apc.ini",
   }  
+  file { "/etc/php.d/xdebug.ini":
+    replace => true,
+    ensure => file,
+    source => "/vagrant/files/php/php.d/xdebug.ini",
+  }
 
 }
 
