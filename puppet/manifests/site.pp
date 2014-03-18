@@ -77,6 +77,29 @@ class httpd {
   file { "/etc/httpd/vhosts_ssl":
       ensure => "directory",
     }
+    file { "/vagrant/www":
+      ensure =>> "directory",
+    }
+    file { "/vagrant/www/drupal7.dev":
+      ensure  => "directory",
+    }
+    file { "/vagrant/www/drupal7.dev/docroot":
+      ensure => "directory",
+    }
+    file { "/vagrant/www/drupal7.dev/log":
+      ensure => "directory",
+    }  
+    file { "/vagrant/www/drupal8.dev":
+      ensure  => "directory",
+    }
+    file { "/vagrant/www/drupal8.dev/docroot":
+      ensure => "directory",
+    }
+    file { "/vagrant/www/drupal8.dev/log":
+      ensure => "directory",
+    }        
+
+
   # file { "/etc/httpd/ssl":
   #     ensure => "directory",
   #   }
