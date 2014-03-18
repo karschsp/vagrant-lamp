@@ -26,13 +26,7 @@ class base {
   }
   package { "telnet":
     ensure  => present,
-  }
-  package { "htop":
-    ensure => present,
-  }    
-  package { "pv":
-    ensure => present,
-  }   
+  }  
 }
 class httpd {
 
@@ -227,9 +221,22 @@ class memcached {
   }
 }
 
+class extras {
+  package { "htop":
+    ensure => present,
+    require => Exec("grab-epel"),
+  }    
+  package { "pv":
+    ensure => present,
+    require => Exec("grab-epel"),
+  } 
+}
+
 
 include base
 include httpd
 include mysql
 include php
 include memcached
+include extras
+include extras
