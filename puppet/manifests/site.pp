@@ -29,7 +29,10 @@ class base {
   }
   package { "htop":
     ensure => present,
-  }       
+  }    
+  package { "pv":
+    ensure => present,
+  }   
 }
 class httpd {
 
