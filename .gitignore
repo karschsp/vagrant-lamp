@@ -1,5 +1,10 @@
-www
 .vagrant
 .DS_Store
 files/httpd/vhosts/ajimedia.dev.conf
 files/httpd/vhosts/magnum.dev.conf
+www/*.local
+www/drupal8.dev/log/*_log
+www/drupal7.dev/log/*_log
+www/drupal8.dev/docroot
+www/drupal7.dev/docroot
+
