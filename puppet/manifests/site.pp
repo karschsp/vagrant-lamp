@@ -126,6 +126,11 @@ class mysql {
      'mysql-devel']: 
       ensure => installed, 
   }
+  file { "/etc/my.cnf":
+    replace => true,
+    ensure  => present,
+    source  => "/vagrant/files/mysqld/my.cnf",
+  }   
   
   service { 'mysqld':
     name   => 'mysqld',
