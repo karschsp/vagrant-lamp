@@ -26,7 +26,10 @@ class base {
   }
   package { "telnet":
     ensure  => present,
-  }  
+  }
+  package { "libnotify":
+    ensure => present,
+  }
 }
 class httpd {
 
@@ -206,6 +209,9 @@ class php {
   #package { "php-pecl-memcached":
   #  ensure => present,
   #}
+  #package { "php55w-pecl-uploadprogress":
+  #  ensure => present
+  #}
   file { "/etc/php.ini":
     replace => true,
     ensure  => present,
@@ -231,6 +237,11 @@ class php {
     ensure => file,
     source => "/vagrant/files/php/php.d/xdebug.ini",
   }
+  file { "/etc/php.d/xhprof.ini":
+    replace => true,
+    ensure => file,
+    source => "/vagrant/files/php/php.d/xhprof.ini",
+  }  
 
 }
 
