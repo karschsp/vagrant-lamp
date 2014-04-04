@@ -227,11 +227,11 @@ class php {
 	ensure => directory,
 	recurse => true,
   }
-  file { "/etc/php/php.d/apc.ini":
-    replace => true,
-    ensure  => file,
-    source  => "/vagrant/files/php/php.d/apc.ini",
-  }  
+  #file { "/etc/php/php.d/apc.ini":
+  #  replace => true,
+  #  ensure  => file,
+  #  source  => "/vagrant/files/php/php.d/apc.ini",
+  #}  
   file { "/etc/php.d/xdebug.ini":
     replace => true,
     ensure => file,
