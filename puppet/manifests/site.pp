@@ -57,7 +57,7 @@ class httpd {
     name      => 'httpd',
     require   => Package["httpd"],
     ensure    => running,
-    enable    => true
+    enable    => true,
   }
 
   file { "/etc/httpd/conf.d/vhost.conf":

@@ -19,7 +19,7 @@ sudo killall java
 #install new solr
 #uncomment the below and to use wget and comment out the the curl line
 #wget http://apache.mirrors.lucidnetworks.net/lucene/solr/4.5.0/solr-4.5.0.tgz
-curl -O http://apache.mirrors.lucidnetworks.net/lucene/solr/4.7.1/solr-4.7.1.tgz
+curl -O http://apache.mirrors.lucidnetworks.net/lucene/solr/4.7.2/solr-4.7.2.tgz
 gunzip solr-4.7.2.tgz
 tar -xvf solr-4.7.2.tar
 sudo mv solr-4.7.2 /opt/solr472
