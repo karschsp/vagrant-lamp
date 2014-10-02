@@ -1,5 +1,6 @@
 .vagrant
 .DS_Store
+rrs
 files/httpd/vhosts/*.local.conf
 files/httpd/vhosts/*.dev.conf
 www
