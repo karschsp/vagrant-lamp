@@ -15,17 +15,20 @@ and
 
 **/vagrant/www/drupal8.dev/docroot**
 
-In your vagrant directory, create a **www** folder.
-This will sync with **/vagrant/www** on your guest.
-Within the www folder, create drupal7.dev &amp; drupal8.dev.
 
+For Drupal 7 
 ```
-cd drupal7.dev
-git clone http://git.drupal.org/project/drupal.git --branch=7.x docroot
-cd ..
-cd drupal8.dev
-git clone http://git.drupal.org/project/drupal.git --branch=8.x docroot
+git clone http://git.drupal.org/project/drupal.git --branch=7.x www/drupal7.dev/docroot
 ```
 
-Follow your Drupal installation instructions from there.
+For Drupal 8 
+```
+git clone http://git.drupal.org/project/drupal.git --branch=8.0.x www/drupal8.dev/docroot
+vagrant ssh
+mysqladmin -u root CREATE drupal8
+cd /vagrant/www/drupal8.dev/docroot/sites/default
+cp default.settings.php settings.php && mkdir files && chmod 777 settings.php files
+```
+
+Now you should be able to go to http://drupal8.dev in your browser and follow your Drupal installation instructions from there.
 
